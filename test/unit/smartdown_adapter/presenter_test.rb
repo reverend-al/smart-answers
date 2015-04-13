@@ -1,10 +1,14 @@
 # coding:utf-8
 require_relative '../../test_helper'
+require_relative '../../helpers/test_fixtures_helper'
 
 module SmartdownAdapter
   class PresenterTest < ActiveSupport::TestCase
+    include TestFixturesHelper
+
     context "initialize" do
       setup do
+        use_smartdown_fixture_plugins
         SmartdownAdapter::Registry.reset_instance
         flow_registry_options = {
           show_drafts: true,
